@@ -573,7 +573,7 @@ class Session(pgraph.Graph):
                             "Crash threshold reached for this primitive, exhausting %d mutants." % skipped
                         )
                         self.total_mutant_index += skipped
-                        self.fuzz_node.mutant_index += skipped
+                        self.fuzz_node._mutant_index += skipped
 
             self.restart_target(target, stop_first=False)
 
@@ -714,7 +714,10 @@ class Session(pgraph.Graph):
 
         # Receive data
         # TODO: Remove magic number (10000)
-        self.last_recv = self.targets[0].recv(10000)
+        try:
+            self.last_recv = self.targets[0].recv(10000)
+        except:
+            pass
 
         if self._check_data_received_each_request:
             self._fuzz_data_logger.log_check("Verify some data was received from the target.")
@@ -833,7 +836,12 @@ class Session(pgraph.Graph):
         if target.netmon:
             target.netmon.pre_send(self.total_mutant_index)
 
-        target.open()
+        while True:
+            try:
+                target.open()
+                break
+            except:
+                self.restart_target(self.targets[0])
 
         self.pre_send(target)
 
