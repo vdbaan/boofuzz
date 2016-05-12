@@ -1,5 +1,10 @@
 boofuzz
 =======
+.. image:: https://travis-ci.org/jtpereyda/boofuzz.svg?branch=master
+    :target: https://travis-ci.org/jtpereyda/boofuzz
+
+.. image:: https://img.shields.io/pypi/v/boofuzz.svg
+    :target: https://pypi.python.org/pypi/boofuzz
 
 Boofuzz is a fork of and the successor to the `Sulley`_ fuzzing
 framework. Besides numerous bug fixes, boofuzz aims for extensibility,
@@ -66,9 +71,12 @@ Overflow. Make sure to use the ``fuzzing`` tag.
 If you’ve found a bug, or have an idea/suggestion/request, file an issue
 here on GitHub.
 
-For other questions, feel free to `email me`_.
+For other questions, check out the `boofuzz Google Group`_.
+
+For updates, follow `@fuzztheplanet`_ on Twitter.
 
 .. _Sulley: https://github.com/OpenRCE/sulley
 .. _INSTALL.rst: INSTALL.rst
 .. _Sulley FTP example: https://www.securepla.net/fuzzing-101-with-sulley/
-.. _email me: https://github.com/jtpereyda
+.. _boofuzz Google Group: https://groups.google.com/d/forum/boofuzz
+.. _@fuzztheplanet: https://twitter.com/fuzztheplanet
